@@ -10,7 +10,6 @@ const Book = () => {
   }, [dispatch]);
 
   const books = useSelector((state) => state.books);
-
   return (
     <div>
       {books.map(({ title, author, itemId }) => (

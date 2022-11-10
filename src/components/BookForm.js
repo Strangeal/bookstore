@@ -11,9 +11,14 @@ const BookForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addNewBook({
-      item_id: uuidv4(), title, author, category,
-    })).unwrap();
+    const add = {
+      item_id: uuidv4(),
+      title,
+      author,
+      category,
+    };
+
+    dispatch(addNewBook({ payload: add, dispatch }));
     setTitle('');
     setAuthor('');
   };

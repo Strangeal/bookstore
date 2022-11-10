@@ -9,6 +9,17 @@ const FETCH_BOOKS = 'FETCH_BOOKS';
 
 const initState = [];
 
+// Action Creator
+export const addBooks = (book) => ({
+  type: ADD_BOOK,
+  payload: book,
+});
+
+export const removeBooks = (id) => ({
+  type: REMOVE_BOOK,
+  payload: id,
+});
+
 export const fetchBookApi = () => async (dispatch) => {
   const response = await axios.get(POST_URL);
   const data = await response.data;
@@ -30,24 +41,24 @@ export const fetchBookApi = () => async (dispatch) => {
   }
 };
 
-export const addNewBook = createAsyncThunk(
-  'books/addNewBook',
-  async (initBooks) => {
-    try {
-      const response = await axios.post(POST_URL, initBooks);
-      return response.data;
-    } catch (error) {
-      return error.message;
-    }
-  },
-);
+export const addNewBook = createAsyncThunk(ADD_BOOK, (action) => (async () => {
+  const { payload, dispatch } = action;
+  await fetch(POST_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  });
+  dispatch(addBooks(payload));
+})());
 
 export const deleteBook = (itemId) => async (dispatch) => {
   const response = await axios.delete(`${POST_URL}/${itemId}`);
   if (response.status === 201) {
     dispatch({
       type: REMOVE_BOOK,
-      itemId,
+      payload: itemId,
     });
   }
 };
@@ -72,16 +83,5 @@ const booksReducer = (state = initState, action) => {
       return state;
   }
 };
-
-// Action Creator
-export const addBooks = (book) => ({
-  type: ADD_BOOK,
-  payload: book,
-});
-
-export const removeBooks = (id) => ({
-  type: REMOVE_BOOK,
-  payload: id,
-});
 
 export default booksReducer;
