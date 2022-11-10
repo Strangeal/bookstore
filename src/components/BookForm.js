@@ -1,16 +1,24 @@
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from 'react-redux';
-import { addBooks } from '../redux/books/books';
+import { addNewBook } from '../redux/books/books';
 
 const BookForm = () => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
+  const [category] = useState('Action');
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addBooks({ id: uuidv4(), title, author }));
+    const add = {
+      item_id: uuidv4(),
+      title,
+      author,
+      category,
+    };
+
+    dispatch(addNewBook({ payload: add, dispatch }));
     setTitle('');
     setAuthor('');
   };

@@ -1,57 +1,87 @@
-import { v4 as uuidv4 } from 'uuid';
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
+
+const POST_URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/Tgl0nQKaAYBzzdbCfHYY/books';
 
 const ADD_BOOK = 'bookstore/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookstore/books/REMOVE_BOOK';
+const FETCH_BOOKS = 'FETCH_BOOKS';
 
-const initState = [
-  {
-    id: uuidv4(),
-    title: 'Rethinking Productivity in Software Engineering',
-    author: 'Caitlin Sadowski, Thomas Zimmermann',
-  },
-  {
-    id: uuidv4(),
-    title: 'Pro Git',
-    author: 'Scott Chacon and Ben Straub',
-  },
-  {
-    id: uuidv4(),
-    title: "You Don't Know JS Yet",
-    author: 'Kyle Simpson',
-  },
-  {
-    id: uuidv4(),
-    title: 'Learning JavaScript Design Patterns',
-    author: 'Addy Osmani',
-  },
-  {
-    id: uuidv4(),
-    title: 'Understanding ECMAScript 6',
-    author: 'Nicholas C. Zakas',
-  },
-];
+const initState = [];
 
-const booksReducer = (state = initState, action = {}) => {
+// Action Creator
+export const addBooks = (book) => ({
+  type: ADD_BOOK,
+  payload: book,
+});
+
+export const removeBooks = (id) => ({
+  type: REMOVE_BOOK,
+  payload: id,
+});
+
+export const fetchBookApi = () => async (dispatch) => {
+  const response = await axios.get(POST_URL);
+  const data = await response.data;
+
+  const books = Object.entries(data).map(([key, value]) => {
+    const { title, category, author } = value[0];
+    return {
+      itemId: key,
+      title,
+      category,
+      author,
+    };
+  });
+  if (books) {
+    dispatch({
+      type: FETCH_BOOKS,
+      payload: books,
+    });
+  }
+};
+
+export const addNewBook = createAsyncThunk(ADD_BOOK, (action) => (async () => {
+  const { payload, dispatch } = action;
+  await fetch(POST_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  });
+  dispatch(addBooks(payload));
+})());
+
+export const deleteBook = (itemId) => async (dispatch) => {
+  const response = await axios.delete(`${POST_URL}/${itemId}`);
+  if (response.status === 201) {
+    dispatch({
+      type: REMOVE_BOOK,
+      payload: itemId,
+    });
+  }
+};
+
+// reducer
+const booksReducer = (state = initState, action) => {
   switch (action.type) {
+    case 'FETCH_BOOKS':
+      return [
+        ...action.payload,
+      ];
     case ADD_BOOK:
       return [
         ...state,
-        action.book,
+        action.payload,
       ];
 
     case REMOVE_BOOK:
-      return state.filter((book) => (book.id) !== action.id);
+      return state.filter((book) => (book.itemId) !== action.payload);
 
     default:
       return state;
   }
 };
-
-export const addBooks = (book) => ({
-  type: ADD_BOOK,
-  book,
-});
-
-export const removeBooks = (id) => ({ type: REMOVE_BOOK, id });
 
 export default booksReducer;
