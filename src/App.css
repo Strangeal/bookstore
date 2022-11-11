@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -25,20 +26,24 @@ li {
   padding: 1.43rem 6.25rem;
   margin-bottom: 2rem;
 }
+
 .navber .brand__link {
   color: #0290ff;
   font-weight: 700;
   font-size: 2rem;
 }
+
 .navber .nav__menu {
   display: flex;
   align-items: center;
   gap: 2rem;
 }
+
 .navber .nav__link {
   color: #b4b4b4;
   font-size: 0.85rem;
 }
+
 .navber .active {
   color: #121212;
 }
@@ -50,19 +55,23 @@ li {
   box-shadow: 0 0 0 1px #e8e8e8;
   border-radius: 4px;
 }
+
 .book__li h5 {
   color: #888;
 }
+
 .book__li h3 {
   color: #121212;
   font-size: 1.3rem;
   font-family: "Roboto Slab", serif;
 }
+
 .book__li p {
   color: #4386bf;
   padding-bottom: 0.8rem;
   font-family: "Roboto Slab", serif;
 }
+
 .book__li button {
   color: #e8e8e8;
   border: none;
@@ -70,6 +79,7 @@ li {
   font-family: "Roboto Slab", serif;
   font-size: 0.8rem;
 }
+
 .book__li button span {
   color: #4386bf;
 }
@@ -80,9 +90,11 @@ li {
   flex-direction: column;
   align-items: center;
 }
+
 .category p {
   font-size: 2rem;
 }
+
 .category button {
   margin: 2rem;
   padding: 0.8rem 4rem;
@@ -97,17 +109,21 @@ li {
 .form__container {
   margin: 3rem 6.25rem;
 }
+
 .form__container hr {
   border: 1px solid #e8e8e8;
 }
+
 .form__container h2 {
   padding: 2rem 0;
   color: #888;
 }
+
 .form__container form {
   display: flex;
   gap: 2rem;
 }
+
 .form__container form input {
   padding: 0.7rem;
   border: 1px solid #e8e8e8;
@@ -115,17 +131,21 @@ li {
   border-radius: 4px;
   outline: none;
 }
+
 .form__container form input::placeholder {
   color: #c4c4c4;
 }
+
 .form__container form .form__title {
   width: 100%;
   min-width: 41rem;
 }
+
 .form__container form .form__author {
   width: 100%;
   min-width: 20rem;
 }
+
 .form__container form button {
   padding: 0.3rem 4rem;
   border: 1px solid #e8e8e8;
@@ -136,5 +156,3 @@ li {
   cursor: pointer;
   font-family: "Roboto Slab", serif;
 }
-
-/*# sourceMappingURL=App.css.map */
