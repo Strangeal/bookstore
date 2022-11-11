@@ -16,16 +16,27 @@ const Book = () => {
         title, author, itemId, category,
       }) => (
         <li key={itemId} className="book__li">
-          <h5>{category}</h5>
-          <h3>{title}</h3>
-          <p>{author}</p>
-          <button type="submit" onClick={() => dispatch(deleteBook(itemId))}>
-            |
-            {' '}
-            <span>Remove</span>
-            {' '}
-            |
-          </button>
+          <div>
+            <h5>{category}</h5>
+            <h3>{title}</h3>
+            <p>{author}</p>
+            <button type="submit" onClick={() => dispatch(deleteBook(itemId))}>
+              <span> Remove</span>
+              <span className="Line-2" />
+              <span>Comment</span>
+              <span className="Line-2" />
+              <span>Edit</span>
+            </button>
+          </div>
+          <div className="progress">
+            <div className="Line-2" />
+
+            <div>
+              <p className="h4">CURRENT CHAPTER</p>
+              <p>Introduction</p>
+              <button type="submit">UPDATE PROGRESS</button>
+            </div>
+          </div>
         </li>
       ))}
     </div>

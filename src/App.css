@@ -48,10 +48,66 @@ li {
   color: #121212;
 }
 
+.category {
+  padding-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.category p {
+  font-size: 2rem;
+}
+
+.category button {
+  margin: 2rem;
+  padding: 0.8rem 4rem;
+  border: 1px solid #e8e8e8;
+  border-radius: 4px;
+  background-color: #0290ff;
+  color: #fff;
+  cursor: pointer;
+  font-family: "Roboto Slab", serif;
+}
+
+.progress {
+  display: flex;
+  align-items: center;
+}
+
+.progress .Line-2 {
+  width: 0.1rem;
+  height: 8rem;
+  border: 1px solid #e8e8e8;
+  margin: 1rem;
+}
+
+.progress .h4 {
+  color: #b4b4b4;
+  font-size: 0.8rem;
+}
+
+.progress p {
+  margin: 3px 0;
+  color: #121212;
+  font-weight: 300;
+  font-size: 0.8rem;
+}
+
+.progress button {
+  background-color: #0290ff;
+  padding: 0.7rem 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
 .book__li {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  align-items: center;
   background-color: #fff;
   margin: 1rem 6.25rem;
-  padding: 3rem 2rem;
+  padding: 1.5rem 3rem;
   box-shadow: 0 0 0 1px #e8e8e8;
   border-radius: 4px;
 }
@@ -82,28 +138,14 @@ li {
 
 .book__li button span {
   color: #4386bf;
-}
-
-.category {
-  padding-top: 5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.category p {
-  font-size: 2rem;
-}
-
-.category button {
-  margin: 2rem;
-  padding: 0.8rem 4rem;
-  border: 1px solid #e8e8e8;
-  border-radius: 4px;
-  background-color: #0290ff;
-  color: #fff;
   cursor: pointer;
-  font-family: "Roboto Slab", serif;
+}
+
+.book__li button .Line-2 {
+  width: 0.08rem;
+  height: 0.2rem;
+  border: 1px solid #e8e8e8;
+  margin: 10px;
 }
 
 .form__container {
