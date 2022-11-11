@@ -10,14 +10,22 @@ const Book = () => {
   }, [dispatch]);
 
   const books = useSelector((state) => state.books);
+  console.log(books);
   return (
-    <div>
-      {books.map(({ title, author, itemId }) => (
-        <li key={itemId}>
+    <div className="books">
+      {books.map(({
+        title, author, itemId, category,
+      }) => (
+        <li key={itemId} className="book__li">
+          <h5>{category}</h5>
           <h3>{title}</h3>
           <p>{author}</p>
           <button type="submit" onClick={() => dispatch(deleteBook(itemId))}>
-            remove
+            |
+            {' '}
+            <span>Remove</span>
+            {' '}
+            |
           </button>
         </li>
       ))}
