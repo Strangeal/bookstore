@@ -10,7 +10,6 @@ const Book = () => {
   }, [dispatch]);
 
   const books = useSelector((state) => state.books);
-  console.log(books);
   return (
     <div className="books">
       {books.map(({
