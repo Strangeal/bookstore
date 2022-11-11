@@ -28,13 +28,25 @@ const Book = () => {
               <span>Edit</span>
             </button>
           </div>
+          <div className="loading__circle">
+            <div className="spinner" />
+            <div className="text">
+              <p className="percentage">
+                {Math.floor(Math.random() * 100)}
+                %
+              </p>
+              <p className="status">Completed</p>
+            </div>
+          </div>
           <div className="progress">
             <div className="Line-2" />
-
             <div>
               <p className="h4">CURRENT CHAPTER</p>
-              <p>Introduction</p>
-              <button type="submit">UPDATE PROGRESS</button>
+              <p className="chapters">
+                <span>Chapter</span>
+                {Math.floor(Math.random() * 10) + 5}
+              </p>
+              <button type="submit" className="btn">UPDATE PROGRESS</button>
             </div>
           </div>
         </li>

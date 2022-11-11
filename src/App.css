@@ -70,56 +70,15 @@ li {
   font-family: "Roboto Slab", serif;
 }
 
-.progress {
-  display: flex;
-  align-items: center;
-}
-
-.progress .Line-2 {
-  width: 0.1rem;
-  height: 8rem;
-  border: 1px solid #e8e8e8;
-  margin: 1rem;
-}
-
-.progress .h4 {
-  color: #b4b4b4;
-  font-size: 0.8rem;
-}
-
-.progress p {
-  margin: 3px 0;
-  color: #121212;
-  font-weight: 300;
-  font-size: 0.8rem;
-}
-
-.progress button {
-  background-color: #0290ff;
-  padding: 0.7rem 1.2rem;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
 .book__li {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr;
   align-items: center;
   background-color: #fff;
   margin: 1rem 6.25rem;
   padding: 1.5rem 3rem;
   box-shadow: 0 0 0 1px #e8e8e8;
   border-radius: 4px;
-}
-
-.book__li h5 {
-  color: #888;
-}
-
-.book__li h3 {
-  color: #121212;
-  font-size: 1.3rem;
-  font-family: "Roboto Slab", serif;
 }
 
 .book__li p {
@@ -146,6 +105,50 @@ li {
   height: 0.2rem;
   border: 1px solid #e8e8e8;
   margin: 10px;
+}
+
+.book__li .progress {
+  display: flex;
+  align-items: center;
+}
+
+.book__li .progress .Line-2 {
+  width: 0.1rem;
+  height: 8rem;
+  border: 1px solid #e8e8e8;
+  margin: 1rem;
+}
+
+.book__li .progress .h4 {
+  color: #b4b4b4;
+  font-size: 0.8rem;
+}
+
+.book__li .progress p {
+  color: #121212;
+  font-weight: 300;
+  font-size: 0.8rem;
+}
+
+.book__li .progress p span {
+  margin: 0.2rem;
+}
+
+.book__li .progress .btn {
+  background-color: #0290ff;
+  padding: 0.7rem 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.book__li h5 {
+  color: #888;
+}
+
+.book__li h3 {
+  color: #121212;
+  font-size: 1.3rem;
+  font-family: "Roboto Slab", serif;
 }
 
 .form__container {
@@ -197,4 +200,34 @@ li {
   color: #fff;
   cursor: pointer;
   font-family: "Roboto Slab", serif;
+}
+
+.loading__circle {
+  display: flex;
+  align-items: center;
+}
+
+.loading__circle .spinner {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  border-width: 5px;
+  border: 5px solid #0290ff;
+  border-left-color: #e8e8e8;
+  transform: rotate(45deg);
+}
+
+.loading__circle .text {
+  margin-left: 2rem;
+}
+
+.loading__circle .text .percentage {
+  font-size: 1.5rem;
+  color: #121212;
+  padding: 0;
+}
+
+.loading__circle .text .status {
+  font-size: 0.8rem;
+  color: #888;
 }
