@@ -1,4 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+$clr-blue: #0290ff;
+$clr-darkTwo: #121212;
+$clr-lightblue: #4386bf;
+$clr-shadow: #e8e8e8;
+$clr-white: #fff;
+$clr-gray: #888;
+$Montserrat: 'Montserrat', sans-serif;
+$RobotoSlab: 'Roboto Slab', serif;
 
 * {
   margin: 0;
@@ -7,5 +16,227 @@
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: $Montserrat;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+.navber {
+  background-color: $clr-white;
+  display: flex;
+  gap: 2rem;
+  padding: 1.43rem 6.25rem;
+  margin-bottom: 2rem;
+
+  .brand__link {
+    color: $clr-blue;
+    font-weight: 700;
+    font-size: 2rem;
+  }
+
+  .nav__menu {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .nav__link {
+    color: #b4b4b4;
+    font-size: 0.85rem;
+  }
+
+  .active {
+    color: $clr-darkTwo;
+  }
+}
+
+.category {
+  padding-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  p {
+    font-size: 2rem;
+  }
+
+  button {
+    margin: 2rem;
+    padding: 0.8rem 4rem;
+    border: 1px solid $clr-shadow;
+    border-radius: 4px;
+    background-color: $clr-blue;
+    color: $clr-white;
+    cursor: pointer;
+    font-family: $RobotoSlab;
+  }
+}
+
+.book__li {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  align-items: center;
+  background-color: $clr-white;
+  margin: 1rem 6.25rem;
+  padding: 1.5rem 3rem;
+  box-shadow: 0 0 0 1px $clr-shadow;
+  border-radius: 4px;
+
+  p {
+    color: $clr-lightblue;
+    padding-bottom: 0.8rem;
+    font-family: $RobotoSlab;
+  }
+
+  button {
+    color: $clr-shadow;
+    border: none;
+    background: none;
+    font-family: $RobotoSlab;
+    font-size: 0.8rem;
+
+    span {
+      color: $clr-lightblue;
+      cursor: pointer;
+    }
+
+    .Line-2 {
+      width: 0.08rem;
+      height: 0.2rem;
+      border: 1px solid $clr-shadow;
+      margin: 10px;
+    }
+  }
+
+  .progress {
+    display: flex;
+    align-items: center;
+
+    .Line-2 {
+      width: 0.1rem;
+      height: 8rem;
+      border: 1px solid $clr-shadow;
+      margin: 1rem;
+    }
+
+    .h4 {
+      color: #b4b4b4;
+      font-size: 0.8rem;
+    }
+
+    p {
+      color: $clr-darkTwo;
+      font-weight: 300;
+      font-size: 0.8rem;
+
+      span {
+        margin: 0.2rem;
+      }
+    }
+
+    .btn {
+      background-color: $clr-blue;
+      padding: 0.7rem 1.2rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  }
+
+  h5 {
+    color: $clr-gray;
+  }
+
+  h3 {
+    color: $clr-darkTwo;
+    font-size: 1.3rem;
+    font-family: $RobotoSlab;
+  }
+}
+
+.form__container {
+  margin: 3rem 6.25rem;
+
+  hr {
+    border: 1px solid $clr-shadow;
+  }
+
+  h2 {
+    padding: 2rem 0;
+    color: $clr-gray;
+  }
+
+  form {
+    display: flex;
+    gap: 2rem;
+
+    input {
+      padding: 0.7rem;
+      border: 1px solid $clr-shadow;
+      font-size: 1rem;
+      border-radius: 4px;
+      outline: none;
+
+      &::placeholder {
+        color: #c4c4c4;
+      }
+    }
+
+    .form__title {
+      width: 100%;
+      min-width: 41rem;
+    }
+
+    .form__author {
+      width: 100%;
+      min-width: 20rem;
+    }
+
+    button {
+      padding: 0.3rem 4rem;
+      border: 1px solid $clr-shadow;
+      border-radius: 4px;
+      font-weight: bold;
+      background-color: $clr-blue;
+      color: $clr-white;
+      cursor: pointer;
+      font-family: $RobotoSlab;
+    }
+  }
+}
+
+.loading__circle {
+  display: flex;
+  align-items: center;
+
+  .spinner {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    border-width: 5px;
+    border: 5px solid $clr-blue;
+    border-left-color: $clr-shadow;
+    transform: rotate(45deg);
+  }
+
+  .text {
+    margin-left: 2rem;
+
+    .percentage {
+      font-size: 1.5rem;
+      color: $clr-darkTwo;
+      padding: 0;
+    }
+
+    .status {
+      font-size: 0.8rem;
+      color: $clr-gray;
+    }
+  }
 }

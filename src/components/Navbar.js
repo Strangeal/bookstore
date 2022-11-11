@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
+// import '../App.css'
 
 const Navbar = () => {
   const Links = [
@@ -17,14 +18,14 @@ const Navbar = () => {
   return (
     <nav className="navber">
       <div className="nav__brand">
-        <Link to="/">BookStore CMS</Link>
+        <Link to="/" className="brand__link">BookStore CMS</Link>
       </div>
       <ul className="nav__menu">
         {Links.map((link) => (
           <li key={link.id} className="nav__item">
             <NavLink
               to={link.path}
-              className={({ isActive }) => `nav__link${isActive ? 'active' : ''}`}
+              className={({ isActive }) => `nav__link ${isActive ? 'active' : ''}`}
               end
             >
               {link.text}
