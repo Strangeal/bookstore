@@ -17,7 +17,7 @@
 
 ## Live Demo
 
-[**See Project 🚀**](comming soon)
+[**See Project 🚀**](https://bookstorecmstrangeal.netlify.app)
 
 ## Get Started
 
